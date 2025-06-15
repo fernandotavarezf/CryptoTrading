@@ -1,0 +1,41 @@
+Prerequisite
+------------
+
+A working installation of Tensorflow on CUDA GPU.
+Numpy, SkLearn, matplotlib, Shap, Binance api.
+The software has ben developed on Linux.
+
+
+Folders
+-------
+reports/ holds all script outputs. 
+main folders holds outputs from NN training and shap explanations
+rep_charts_paper/ holds the output used for writing the article.
+processed_data/ holds the preprocessed dataset with all labeling schemes applied
+raw_data_4_hour/ holds the raw datasets downloaded from binance API endpoint
+
+
+Running the pipeline
+--------------------
+
+The analysis pipeline is constituted by a series of script to be run in sequence.
+config.py handle most of the script configurations. Some config params are rewritten into the script
+before running the main task.
+
+- Update run_download_data.py with your api key and secret key and run them.
+    It create the raw set of cryptos into asset_data/raw_data_4_hour
+- Run run_preprocess_dataset.py. it create the preprocessed dataset and save them into a csv file in 
+    processed_data/ folder
+- Run run_data_stats.py to build the chart for data distribution over time.
+- Optionally run run_alpha_beta.py to search for alpha and beta, update config.py by hand.
+- Run run_search_bw_fw.py. It do grid search for backward and forward window. The output is into an
+    excell file into reports/final_ncr_1.xlsx
+- Run run_train_final.py to train final model. It rewrites the run configuration taken from config.py.
+    Eventually update run_conf dictionary at the beginning of the script and top_most list of backward and forward window 
+    to test different parameters.
+    It save excell reports into reports/final_model_*_*.xlsx. one file fo each bw and fw combination.
+- Run run_backtest_final.py. It backtests every model from previous script and yield some charts and 
+    reports/backtest_final.xlsx excell report.
+    It rewrites the config object to select the cryptos and the backtest intervall.
+- Run run_shap_explainer.py to create and serialize on disk the explanation object
+- Run run_shap_chart.py to draw all shap charts.
