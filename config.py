@@ -6,7 +6,7 @@ run1 = {
     # 'folder' : 'raw_data_30_min/',
     #'folder' : 'raw_data_1_day/',
 
-    'reports': 'reports/',
+    'reports': 'C:\\Users\\Fernando Fondeur\\OneDrive\\Desktop\\CryptoTrading_vf\\CryptoTrading\\reports',
     'alpha': 0.038,  # computed in determine_alpha.py
     'beta': 0.24,  # ignore sample greater than beta in percent of change
     'seed': 353598215,

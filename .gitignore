@@ -1,0 +1,6 @@
+# Archivos de datos (grandes / binarios)
+*.csv
+*.xlsx
+*.pkl
+*.pickle
+*.png

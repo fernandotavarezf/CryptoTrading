@@ -4,7 +4,7 @@ import shap
 from config import RUN as run_conf
 import sys
 
-handle = open('explainer_5_2_50000.pickle', 'rb')
+handle = open('C:\\Users\\Fernando Fondeur\\OneDrive\\Desktop\\CryptoTrading_vf\\CryptoTrading\\explainer_5_2_50000.pickle', 'rb')
 ex = pickle.load(handle)
 
 # f_name = ['Z_score', 'RSI', 'boll', 'ULTOSC', 'pct_change', 'zsVol', 'PR_MA_Ratio_short', 'MA_Ratio_short', 'MA_Ratio', 'PR_MA_Ratio', 'CDL2CROWS', 'CDL3BLACKCROWS', 'CDL3WHITESOLDIERS', 'CDLABANDONEDBABY', 'CDLBELTHOLD', 'CDLCOUNTERATTACK', 'CDLDARKCLOUDCOVER', 'CDLDRAGONFLYDOJI', 'CDLENGULFING', 'CDLEVENINGDOJISTAR', 'CDLEVENINGSTAR', 'CDLGRAVESTONEDOJI', 'CDLHANGINGMAN', 'CDLHARAMICROSS', 'CDLINVERTEDHAMMER', 'CDLMARUBOZU', 'CDLMORNINGDOJISTAR', 'CDLMORNINGSTAR', 'CDLPIERCING', 'CDLRISEFALL3METHODS', 'CDLSHOOTINGSTAR', 'CDLSPINNINGTOP', 'CDLUPSIDEGAP2CROWS', 'DayOfWeek', 'Month', 'Hourly']
