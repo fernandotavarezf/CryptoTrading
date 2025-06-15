@@ -13,14 +13,14 @@ run1 = {
     'commission fee': 0.001,  # 0.0004,  # 0.001,
 
     'b_window': 5,
-    'f_window': 2,
+    'f_window': 1,
 
     # used in define the grid for searching backward and forward window
     'b_lim_sup_window': 6,
     'f_lim_sup_window': 6,
     
-    'back_test_start': Timestamp("2022-01-1"),
-    'back_test_end': Timestamp("2022-03-31"),
+    'back_test_start': Timestamp("2025-01-1"),
+    'back_test_end': Timestamp("2025-05-31"),
     'suffix':  'ncr',
 
     'stop_loss': 0.05,

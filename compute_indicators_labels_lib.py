@@ -69,7 +69,10 @@ def get_dataset(RUN):
     :return: pandas dataframe wit 'label' column
     """
     
-    ds = pd.read_csv("processed_data/%strain_test_data.csv" % RUN['folder'].replace('/', '_'))
+    #ds = pd.read_csv("processed_data/%strain_test_data.csv" % RUN['folder'].replace('/', '_'))
+    
+    #HARDCODED
+    ds = pd.read_csv("C:\\Users\\Fernando Fondeur\\OneDrive\\Desktop\\CryptoTrading_vf\\CryptoTrading\\processed_data\\raw_data_4_hour_train_test_data.csv")
     
     # remove off label data
     for coin in RUN['off_label_set']:

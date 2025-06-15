@@ -13,6 +13,8 @@ from config import RUN as run_conf
 import matplotlib.pyplot as plt
 import datetime as dt
 import matplotlib.dates as mdates
+from tensorflow.keras.utils import to_categorical
+
 
 """
 backtest strategy based on coins excluded from training and test set
@@ -278,7 +280,7 @@ def calc_cum_ret_s2(x, stop_loss, fee):
 
 
 
-def backtest_single_coin(RUN, filename, mdl_name="model.h5", suffix=""):
+def backtest_single_coin(RUN, filename, mdl_name="C:\\Users\\Fernando Fondeur\\OneDrive\\Desktop\\CryptoTrading_vf\\CryptoTrading\\model_final_5_1.h5", suffix=""):
     """
     Backtest a coin whose timeseries is contained in filename.
     It uses last model trained.
@@ -304,8 +306,9 @@ def backtest_single_coin(RUN, filename, mdl_name="model.h5", suffix=""):
     
     
     try:
-        data = pd.read_csv(f"{RUN['folder']}{filename}")
-        data['Date'] = pd.to_datetime(data['Date'])
+        #data = pd.read_csv(f"{RUN['folder']}{filename}")
+        data = pd.read_csv(f"{filename}")
+        data['Date'] = pd.to_datetime(data['Date'], format='%d/%m/%Y %H:%M')
 
         data = TecnicalAnalysis.compute_oscillators(data)
         data = TecnicalAnalysis.find_patterns(data)
@@ -389,7 +392,8 @@ def backtest_single_coin(RUN, filename, mdl_name="model.h5", suffix=""):
         plt.setp(ax.get_xticklabels(), rotation=30, horizontalalignment='right')
         ax.grid()
 
-        fig.savefig(RUN["reports"] + filename.split('.')[0] + "_b%d_f%d_%s.png" % (b, f, suffix))
+        #fig.savefig(RUN["reports"] + filename.split('.')[0] + "_b%d_f%d_%s.png" % (b, f, suffix))
+        fig.savefig(filename.split('.')[0] + "_b%d_f%d_%s.png" % (b, f, suffix))
         plt.show()
         
         return {'du': (cap_du, num_op_du, min_drawdown_du, max_gain_du, g_ops_du),
@@ -489,4 +493,4 @@ def backtest_all_coins(RUN):
 
 
 if __name__ == "__main__":
-    backtest_single_coin(run_conf, 'BTCUSDT.csv')
+    backtest_single_coin(run_conf, 'C:\\Users\\Fernando Fondeur\\OneDrive\\Desktop\\CryptoTrading_vf\\CryptoTrading\\XRPUSDT_20250101-20250531_4h_train.csv')
